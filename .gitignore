@@ -1,0 +1,47 @@
+# ======================
+# Build outputs
+# ======================
+# Build outputs (all modules)
+**/target/
+**/build/
+
+# Build outputs (single module)
+/target/
+/build/
+*.jar
+*.war
+*.ear
+
+# ======================
+# IDE files
+# ======================
+ VS Code
+.vscode/
+
+# ======================
+# OS files
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# Logs
+# ======================
+*.log
+logs/
+
+# ======================
+# Environment / secrets
+# ======================
+.env
+application-*.yml
+application-*.properties
+!application.yml
+!application.properties
+
+# ======================
+# Temporary files
+# ======================
+*.tmp
+*.swp
+*.bak
