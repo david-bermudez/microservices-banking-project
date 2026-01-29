@@ -1,0 +1,28 @@
+meta {
+  name: 3. Retiro sin saldo (Error)
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8082/movimientos
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "cuentaId": 1,
+    "tipoMovimiento": "Retiro",
+    "valor": -5000,
+    "descripcion": "Intento de retiro sin saldo"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

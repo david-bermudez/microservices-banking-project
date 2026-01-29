@@ -1,0 +1,33 @@
+meta {
+  name: 5. Actualizar Cliente
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:8081/clientes/1
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "nombre": "Jose Lema Actualizado",
+    "genero": "M",
+    "edad": 36,
+    "identificacion": "098254785",
+    "direccion": "Nueva Direccion",
+    "telefono": "098254785",
+    "clienteId": "1234",
+    "contrasena": "newpassword",
+    "estado": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

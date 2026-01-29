@@ -1,0 +1,15 @@
+meta {
+  name: 3. Listar Todas las Cuentas
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://localhost:8082/cuentas
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

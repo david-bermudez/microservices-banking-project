@@ -1,0 +1,28 @@
+meta {
+  name: 2. Deposito de 600 (Marianela)
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8082/movimientos
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "cuentaId": 2,
+    "tipoMovimiento": "Deposito",
+    "valor": 600,
+    "descripcion": "Deposito de 600"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

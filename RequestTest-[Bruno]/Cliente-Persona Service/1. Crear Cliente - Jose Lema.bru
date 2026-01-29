@@ -1,0 +1,33 @@
+meta {
+  name: 1. Crear Cliente - Jose Lema
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8081/clientes
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "nombre": "Jose Lema",
+    "genero": "M",
+    "edad": 35,
+    "identificacion": "098254785",
+    "direccion": "Otavalo sn y principal",
+    "telefono": "098254785",
+    "clienteId": "1234",
+    "contrasena": "1234",
+    "estado": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,20 @@
+meta {
+  name: 1. Reporte Estado de Cuenta - Cliente 1
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8082/reportes?fecha=01/02/2022&cliente=1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fecha: 01/02/2022
+  cliente: 1
+}
+
+settings {
+  encodeUrl: true
+}

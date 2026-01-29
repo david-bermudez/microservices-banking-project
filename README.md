@@ -58,7 +58,8 @@ microservices-banking/
 │   └── Dockerfile
 ├── docker-compose.yml
 ├── BaseDatos.sql
-├── Postman_Collection.json
+├── RequestTest-[Postman].json
+├── RequestTest-[Bruno]
 ├── README.md
 └── OPENAPI_README.md
 ```
@@ -176,12 +177,16 @@ El script `BaseDatos.sql` incluye:
 ```bash
 # Ejecutar pruebas unitarias
 mvn test
-
 ```
 
 ## Validación con Postman
 
-Importar el archivo `Postman_Collection.json` en Postman para probar todos los endpoints.
+Importar el archivo `RequesTest-[Postman].json` en **Postman** para probar todos los endpoints.
+
+
+## Validación con Bruno
+
+Importar el directorio `RequesTest-[Bruno]` en **Bruno** para probar todos los endpoints.
 
 ## Autor
 Desarrollado por **David Bermudez Sabagh**.

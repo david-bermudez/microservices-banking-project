@@ -1,0 +1,20 @@
+meta {
+  name: 2. Reporte con Rango de Fechas
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8082/reportes?fecha=01/02/2022-10/02/2022&cliente=2
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fecha: 01/02/2022-10/02/2022
+  cliente: 2
+}
+
+settings {
+  encodeUrl: true
+}

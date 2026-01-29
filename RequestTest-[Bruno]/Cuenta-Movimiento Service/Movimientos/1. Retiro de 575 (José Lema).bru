@@ -1,0 +1,28 @@
+meta {
+  name: 1. Retiro de 575 (José Lema)
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8082/movimientos
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "cuentaId": 1,
+    "tipoMovimiento": "Retiro",
+    "valor": -575,
+    "descripcion": "Retiro de 575"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

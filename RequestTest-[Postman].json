@@ -1,0 +1,553 @@
+{
+  "info": {
+    "name": "Sistema Bancario - Microservicios",
+    "description": "Colección para probar los microservicios de cliente-persona y cuenta-movimiento",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Cuenta-Movimiento Service",
+      "item": [
+        {
+          "name": "Movimientos",
+          "item": [
+            {
+              "name": "1. Retiro de 575 (José Lema)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false,
+                    "type": "default"
+                  }
+                ],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/movimientos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "movimientos"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cuentaId\": 1,\n  \"tipoMovimiento\": \"Retiro\",\n  \"valor\": -575,\n  \"descripcion\": \"Retiro de 575\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "2. Deposito de 600 (Marianela)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false,
+                    "type": "default"
+                  }
+                ],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/movimientos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "movimientos"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cuentaId\": 2,\n  \"tipoMovimiento\": \"Deposito\",\n  \"valor\": 600,\n  \"descripcion\": \"Deposito de 600\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "3. Retiro sin saldo (Error)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false,
+                    "type": "default"
+                  }
+                ],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/movimientos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "movimientos"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cuentaId\": 1,\n  \"tipoMovimiento\": \"Retiro\",\n  \"valor\": -5000,\n  \"descripcion\": \"Intento de retiro sin saldo\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "4. Listar Todos los Movimientos",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/movimientos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "movimientos"
+                  ],
+                  "query": [],
+                  "variable": []
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Cuentas",
+          "item": [
+            {
+              "name": "1. Crear Cuenta Ahorro - Jose Lema",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false,
+                    "type": "default"
+                  }
+                ],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/cuentas",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "cuentas"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"numeroCuenta\": \"478758\",\n  \"tipoCuenta\": \"Ahorro\",\n  \"saldoInicial\": 2000,\n  \"estado\": true,\n  \"clienteId\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "2. Crear Cuenta Corriente - Marianela",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": false,
+                    "type": "default"
+                  }
+                ],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/cuentas",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "cuentas"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"numeroCuenta\": \"225487\",\n  \"tipoCuenta\": \"Corriente\",\n  \"saldoInicial\": 100,\n  \"estado\": true,\n  \"clienteId\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "3. Listar Todas las Cuentas",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/cuentas",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "cuentas"
+                  ],
+                  "query": [],
+                  "variable": []
+                }
+              }
+            },
+            {
+              "name": "4. Obtener Cuenta por ID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/cuentas/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "cuentas",
+                    "1"
+                  ],
+                  "query": [],
+                  "variable": []
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reportes",
+          "item": [
+            {
+              "name": "1. Reporte Estado de Cuenta - Cliente 1",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/reportes?fecha=01/02/2022&cliente=1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "reportes"
+                  ],
+                  "query": [
+                    {
+                      "key": "fecha",
+                      "value": "01/02/2022"
+                    },
+                    {
+                      "key": "cliente",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            },
+            {
+              "name": "2. Reporte con Rango de Fechas",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "http://localhost:8082/reportes?fecha=01/02/2022-10/02/2022&cliente=2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost:8082"
+                  ],
+                  "path": [
+                    "reportes"
+                  ],
+                  "query": [
+                    {
+                      "key": "fecha",
+                      "value": "01/02/2022-10/02/2022"
+                    },
+                    {
+                      "key": "cliente",
+                      "value": "2"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cliente-Persona Service",
+      "item": [
+        {
+          "name": "1. Crear Cliente - Jose Lema",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "http://localhost:8081/clientes",
+              "protocol": "http",
+              "host": [
+                "localhost:8081"
+              ],
+              "path": [
+                "clientes"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Jose Lema\",\n  \"genero\": \"M\",\n  \"edad\": 35,\n  \"identificacion\": \"098254785\",\n  \"direccion\": \"Otavalo sn y principal\",\n  \"telefono\": \"098254785\",\n  \"clienteId\": \"1234\",\n  \"contrasena\": \"1234\",\n  \"estado\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "2. Crear Cliente - Marianela Montalvo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "http://localhost:8081/clientes",
+              "protocol": "http",
+              "host": [
+                "localhost:8081"
+              ],
+              "path": [
+                "clientes"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Marianela Montalvo\",\n  \"genero\": \"F\",\n  \"edad\": 28,\n  \"identificacion\": \"0975489\",\n  \"direccion\": \"Amazonas y NNUU\",\n  \"telefono\": \"09754896\",\n  \"clienteId\": \"111\",\n  \"contrasena\": \"5678\",\n  \"estado\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "3. Listar Todos los Clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "http://localhost:8081/clientes",
+              "protocol": "http",
+              "host": [
+                "localhost:8081"
+              ],
+              "path": [
+                "clientes"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "4. Obtener Cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "http://localhost:8081/clientes/1",
+              "protocol": "http",
+              "host": [
+                "localhost:8081"
+              ],
+              "path": [
+                "clientes",
+                "1"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "5. Actualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": false,
+                "type": "default"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "http://localhost:8081/clientes/1",
+              "protocol": "http",
+              "host": [
+                "localhost:8081"
+              ],
+              "path": [
+                "clientes",
+                "1"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Jose Lema Actualizado\",\n  \"genero\": \"M\",\n  \"edad\": 36,\n  \"identificacion\": \"098254785\",\n  \"direccion\": \"Nueva Direccion\",\n  \"telefono\": \"098254785\",\n  \"clienteId\": \"1234\",\n  \"contrasena\": \"newpassword\",\n  \"estado\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "6. Eliminar Cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "http://localhost:8081/clientes/1",
+              "protocol": "http",
+              "host": [
+                "localhost:8081"
+              ],
+              "path": [
+                "clientes",
+                "1"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": []
+}

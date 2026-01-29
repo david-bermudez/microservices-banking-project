@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: cliente-persona-service
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/banking_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    open-in-view: false
+
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:localhost}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:guest}
+    password: ${SPRING_RABBITMQ_PASSWORD:guest}
+
+server:
+  port: 8081
+
+# Rate limiter configuration: 3 calls per 10 seconds
+resilience4j:
+  ratelimiter:
+    instances:
+      apiRateLimiter:
+        limit-for-period: 3
+        limit-refresh-period: 10s
+        timeout-duration: 0
+
+logging:
+  level:
+    com.banking: DEBUG
+    org.springframework.amqp: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# SpringDoc OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+# RabbitMQ Configuration
+rabbitmq:
+  exchange:
+    cliente: cliente.exchange
+  queue:
+    cliente-created: cliente.created.queue
+    cliente-updated: cliente.updated.queue
+    cliente-deleted: cliente.deleted.queue
+  routing-key:
+    cliente-created: cliente.created
+    cliente-updated: cliente.updated
+    cliente-deleted: cliente.deleted
+
+# Rate limiter configuration: 30 calls per minute
+rate:
+  limit:
+    requests-per-minute: 30
+    excluded-paths: 
+      - /swagger-ui
+      - /swagger-ui/
+      - /swagger-ui.html
+      - /swagger-ui/**
+      - /v3/api-docs
+      - /v3/api-docs/**

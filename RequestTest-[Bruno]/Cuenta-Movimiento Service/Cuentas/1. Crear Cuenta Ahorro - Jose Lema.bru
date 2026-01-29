@@ -1,0 +1,29 @@
+meta {
+  name: 1. Crear Cuenta Ahorro - Jose Lema
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8082/cuentas
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "numeroCuenta": "478758",
+    "tipoCuenta": "Ahorro",
+    "saldoInicial": 2000,
+    "estado": true,
+    "clienteId": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}
